@@ -2,14 +2,16 @@ import string
 
 
 def main():
-    """armyCalculation("M", 20.1)
+    armyCalculation("M", 20.1)
     armyCalculation("F", 20.1)
     armyCalculation("M", 22)
     armyCalculation("F", 17)
 
     earlyLetters("b", "c")
     earlyLetters("d", "a")
-    """
+
+    primeNumbers(100)
+    primeNumbers(7)
 
 
 # 1
@@ -52,6 +54,8 @@ def primeNumbers(number):
     for index in range(2, number):
         if isprime(index):
             print(index)
+    if isprime(number):
+        print(number)
 
 
 # 5
@@ -65,6 +69,7 @@ def Oldest():
         if age > ageOldest:
             ageOldest = age
             nameOldest = name
+        numberPeople -= 1
     print(
         "The name of the most mature person is"
         + nameOldest
