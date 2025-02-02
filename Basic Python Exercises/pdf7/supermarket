@@ -1,0 +1,77 @@
+accountAmount = 0
+
+
+def main():
+    print("Welcome to the supermarket!")
+    shoppingArray = {}
+    ADD = 1
+    REMOVE = 2
+    COMLET_PURCHASE = 3
+    userInput = int(
+        input(
+            f"""enter {ADD} to add a product, {REMOVE} to remove a product,
+              {COMLET_PURCHASE} to complete the purchase \n"""
+        )
+    )
+
+    if userInput > 3 or userInput < 1:
+        print("Invalid input please enter again")
+
+    while userInput != COMLET_PURCHASE:
+        if userInput > 3 or userInput < 1:
+            print("Invalid input please enter again")
+        if userInput == ADD:
+            shoppingArray = addProduct(shoppingArray)
+        elif userInput == REMOVE:
+            removeProduct(shoppingArray)
+        elif userInput == COMLET_PURCHASE:
+            print("The purchase is complete")
+            print(f"Your account amount is: {accountAmount}")
+            print("The products you bought are: ")
+            for key, value in shoppingArray.items():
+                print(
+                    f"Product name: {key}, price: {value['price']}, sum: {value['sum']}"
+                )
+            break
+        userInput = int(
+            input(
+                f"""enter {ADD} to add a product, {REMOVE} to remove a product,
+                {COMLET_PURCHASE} to complete the purchase \n"""
+            )
+        )
+    print(f"Your account is {accountAmount}")
+    print(f"Your shopping list is {shoppingArray}")
+
+
+def addProduct(shoppingArray):
+    global accountAmount
+    productName = input("Enter the product name: ")
+    price = float(input("Enter the price of the product: "))
+    sumProduct = float(input("Enter the sum of the product you want to buy: "))
+    if productName in shoppingArray:
+        shoppingArray[productName]["sum"] += sumProduct
+    else:
+        shoppingArray[productName] = {"price": price, "sum": sumProduct}
+    accountAmount += price * sumProduct
+    return shoppingArray
+
+
+def removeProduct(shoppingArray):
+    productName = input("Enter the product name you want to remove: ")
+    sumProductRemove = float(input("Enter the sum of the product you want to remove: "))
+    global accountAmount
+    if productName in shoppingArray:
+        if shoppingArray[productName]["sum"] > sumProductRemove:
+            shoppingArray[productName]["sum"] -= sumProductRemove
+            accountAmount -= shoppingArray[productName]["price"] * sumProductRemove
+        else:
+            accountAmount -= (
+                shoppingArray[productName]["price"] * shoppingArray[productName]["sum"]
+            )
+            del shoppingArray[productName]
+    else:
+        print("The product is not in the shopping list")
+
+
+if __name__ == "__main__":
+    main()
