@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Alpha-Training/Intermediate Python Exercises/Exercise 2"
+    ]
+}
