@@ -1,5 +1,15 @@
 {
-    "python.analysis.extraPaths": [
-        "./Alpha-Training/Intermediate Python Exercises/Exercise 2"
-    ]
+  "python.analysis.extraPaths": [
+    "./Alpha-Training/Intermediate Python Exercises/Exercise 2"
+  ],
+  "python.testing.pytestArgs": ["Python training QA"],
+  "python.testing.unittestEnabled": true,
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "./pytest_traning",
+    "-p",
+    "test_*.py"
+  ]
 }
