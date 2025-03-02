@@ -1,5 +1,11 @@
 {
-    "python.analysis.extraPaths": [
-        "./Alpha-Training/Intermediate Python Exercises/Exercise 2"
-    ]
+  "python.analysis.extraPaths": [
+    "./Alpha-Training/Intermediate Python Exercises/Exercise 2"
+  ],
+  "python.testing.pytestArgs": [
+    "Alpha-Training"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }
+

@@ -1,0 +1,19 @@
+def main():
+
+    print(words_length("Hello", "World", "Python", "Programming"))
+    print(tota_age(John=25, Jane=24, Jack=27, Jina=23))
+
+
+# 8
+def words_length(*words):
+    return sum(len(word) for word in words)
+
+
+# 9
+def tota_age(**ages):
+    print(ages)
+    print(sum(ages.values()))
+
+
+if __name__ == main():
+    main()
